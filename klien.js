@@ -39,7 +39,8 @@ function dues(doc){
     const day = d0.getDate();
     let next = dueOn(today.getFullYear(), today.getMonth(), day);
     if(next < today) next = dueOn(today.getFullYear(), today.getMonth()+1, day);
-    if(next < d0) next = d0;
+    const first = dueOn(d0.getFullYear(), d0.getMonth()+1, day);   // due pertama = sebulan selepas inforce
+    if(next < first) next = first;
     out.push({ e, y:+y, m:+m, day, next, days: Math.round((next - today)/864e5) });
   }
   return out.sort((a,b)=>a.days-b.days);
