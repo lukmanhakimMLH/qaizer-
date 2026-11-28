@@ -181,7 +181,7 @@ function vDash(){
         <div class="small muted">APA ${YEAR}${S.me.updatedAt?' · kemaskini '+fmtDate(S.me.updatedAt):''}</div></div>
       <button class="btn-sm" onclick="go('#/apa/tetapan')">✏️</button>
     </div>
-    ` + KLIEN.dueHTML(S.me) + `
+    ` + KLIEN.bdayHTML(S.me) + KLIEN.dueHTML(S.me) + `
     <h3>📈 Prestasi terkini</h3>` + dashboardHTML(S.me) + contestCards(S.me, true);
 }
 function vBorang(){
@@ -492,6 +492,8 @@ const APA = window.APA = {
     if(a==='bulan') return vBulan(b);
     if(a==='kes') return KLIEN.vKes(b, c);
     if(a==='due') return KLIEN.vDue();
+    if(a==='hari-jadi') return KLIEN.vHariJadi();
+    if(a==='hb') return KLIEN.vWish(b);
     if(a==='p100') return b ? vP100Form(b) : vP100();
     if(a==='contest') return vContest();
     if(a==='tetapan') return vTetapan();
